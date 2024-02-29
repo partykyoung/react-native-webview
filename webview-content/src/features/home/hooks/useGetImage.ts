@@ -1,5 +1,7 @@
 import { useCallback, useEffect, useState } from 'react';
 
+import { IMAGE } from '../../../../../src/commons/constants/event';
+
 type ImageEventData = {
   type: string;
   payload?: {
@@ -11,11 +13,11 @@ function useGetImage() {
   const [selectedImage, setSelectedImage] = useState('');
 
   const onCallbackMessage = useCallback((event: MessageEvent) => {
-    if (!event?.data) return;
+    if (!event || !event.data) return;
 
     const parsed: ImageEventData = JSON.parse(event.data);
 
-    if (parsed.type === 'image') {
+    if (parsed.type === IMAGE) {
       setSelectedImage(parsed.payload?.base64 ?? '');
     }
   }, []);
