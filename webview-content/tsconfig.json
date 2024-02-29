@@ -1,0 +1,23 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "target": "ES2015",
+    "lib": ["dom", "dom.iterable", "esnext"], 
+    "module": "esnext", 
+    "allowJs": true,
+    "skipLibCheck": true, 
+    "esModuleInterop": true, 
+    "allowSyntheticDefaultImports": true,
+    "strict": true, 
+    "forceConsistentCasingInFileNames": true,
+    "moduleResolution": "bundler", 
+    "resolveJsonModule": true, 
+    "isolatedModules": true, 
+    "noEmit": true,
+    "jsx": "react-jsx",
+    "plugins": [{ "name": "typescript-plugin-css-modules" }]
+  },
+
+  "include": ["src/**/*", "webpack.config.js"],
+  "exclude": ["node_modules", "public", "../android/app/src/main/assets", "scripts"]
+}

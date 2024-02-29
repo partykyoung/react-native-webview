@@ -1,17 +1,24 @@
 {
-  "name": "ReactNativeWebview",
+  "name": "react-native-webview",
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "android": "react-native run-android",
-    "ios": "react-native run-ios",
+    "initialize:webview": "cd webview-content && yarn install",
+    "install:all": "yarn install && yarn initialize:webview",
+    "webview": "cd webview-content && yarn start",
+    "build:web": "cd webview-content && yarn build",
+    "android": "yarn build:web && react-native run-android",
+    "ios": "yarn build:web && react-native run-ios",
     "lint": "eslint .",
-    "start": "react-native start",
+    "start": "yarn build:web && react-native start",
     "test": "jest"
   },
   "dependencies": {
     "react": "18.2.0",
-    "react-native": "0.73.5"
+    "react-native": "0.73.4",
+    "react-native-image-picker": "^7.1.0",
+    "react-native-permissions": "^4.1.1",
+    "react-native-webview": "^13.7.1"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0",
@@ -21,13 +28,17 @@
     "@react-native/eslint-config": "0.73.2",
     "@react-native/metro-config": "0.73.5",
     "@react-native/typescript-config": "0.73.1",
+    "@testing-library/react-native": "^12.4.3",
+    "@types/jest": "^29.5.12",
     "@types/react": "^18.2.6",
     "@types/react-test-renderer": "^18.0.0",
     "babel-jest": "^29.6.3",
     "eslint": "^8.19.0",
     "jest": "^29.6.3",
+    "jest-environment-jsdom": "^29.7.0",
     "prettier": "2.8.8",
     "react-test-renderer": "18.2.0",
+    "ts-jest": "^29.1.2",
     "typescript": "5.0.4"
   },
   "engines": {

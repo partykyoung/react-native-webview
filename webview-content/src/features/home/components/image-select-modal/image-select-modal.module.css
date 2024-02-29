@@ -1,0 +1,7 @@
+.image-select-modal-content {
+  row-gap: 16px;
+}
+
+.image-select-modal-button {
+  height: calc(50% - 8px);
+}
